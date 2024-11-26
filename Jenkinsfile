@@ -10,7 +10,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Pull the latest code from Git repository
-                git 'https://github.com/Pravalika7-V/5.git'
+                git branch: 'main', url: 'https://github.com/Pravalika7-V/5.git'
             }
         }
 
