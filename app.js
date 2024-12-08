@@ -9,6 +9,9 @@ app.use(bodyParser.json());
 
 // Sample in-memory "database" for to-do items
 let todos = [];
+app.get('/', (req, res) => {
+  res.send('Welcome to the app!');
+});
 
 // Route to get all to-do items
 app.get('/todos', (req, res) => {
