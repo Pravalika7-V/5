@@ -6,7 +6,7 @@ pipeline {
             steps {
                 script {
                     // Build Docker image
-                    bat 'docker build -t todo-app .'
+                    bat 'docker build -t todo-app2 .'
                 }
             }
         }
