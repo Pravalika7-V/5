@@ -2,16 +2,7 @@ pipeline {
     agent any
 
     stages {
-        
-
-        // stage('Install Dependencies') {
-        //     steps {
-        //         // Install NPM dependencies (Windows command)
-        //         bat 'npm install'
-        //     }
-        // }
-
-       
+     
 
         stage('Build') {
             steps {
