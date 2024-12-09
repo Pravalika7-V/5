@@ -2,21 +2,48 @@ pipeline {
     agent any
 
     stages {
-        stage('Build Docker Image') {
+        stage('Checkout') {
             steps {
-                script {
-                    // Build Docker image
-                    bat 'docker build -t todo-app .'
-                }
+                // Pull the latest code from Git repository
+                git 'https://github.com/Pravalika7-V/5.git'
             }
         }
-        stage('Run Docker Container') {
+
+        stage('Install Dependencies') {
             steps {
-                script {
-                    // Run Docker container
-                    bat 'docker run -d -p 3000:3000 todo-app'
-                }
+                // Install NPM dependencies (Windows command)
+                bat 'npm install'
             }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run tests using Mocha (Windows command)
+                bat 'npm test'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                // Add build commands here if needed
+                echo 'Building the project'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                // Optional: Add your deployment steps (e.g., upload to server, Docker, etc.)
+                echo 'Deploying the application'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed!'
         }
     }
 }
